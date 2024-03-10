@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\albumPhotoGallery;
 use App\Models\Newsletter;
 use App\Models\PhotoAlbum;
+use App\Models\PhotoYear;
 use App\Models\Videos;
 
 class PhotoController extends Controller
@@ -13,7 +14,8 @@ class PhotoController extends Controller
     public function photo(){
         $photos = PhotoAlbum::all();
         return view('website.page.photoGallery',[
-            'photos'=>$photos
+            'photos'=>$photos,
+            'years'=>PhotoYear::all()
         ]);
     }
 

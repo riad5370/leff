@@ -14,15 +14,20 @@
             <div class="dropdown">
                 <!-- Default dropup button -->
                 <div class="btn-group dropup">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <b>Albums from</b> 2024
+                    <!-- Add id to the button -->
+                    <button id="dropdownMenuButton" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <b>Albums from</b> All
                     </button>
                     <ul class="dropdown-menu">
                         <!-- Dropdown menu links -->
-                        @foreach ($photos as $photo)
+                        {{-- @foreach ($photos as $photo)
                             @if ($photo->PhotoYear)
                                 <li><a class="dropdown-item filter-year" data-year="{{ $photo->PhotoYear->id }}">{{ $photo->PhotoYear->year }}</a></li>
                             @endif
+                        @endforeach --}}
+
+                        @foreach ($years as $year)
+                            <li><a class="dropdown-item filter-year" data-year="{{ $year->id }}">{{ $year->year }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -31,7 +36,9 @@
     </div>
 </div>
 <!-- Page Header End -->
-
+@if ($photos->isEmpty())
+<h1>No Photo</h1>
+@else
 <section class="photos-section my-3">
     <div class="container">
         <div class="row">
@@ -58,7 +65,7 @@
         </div>
     </div>
 </section>
-
+@endif
 <script>
     $(document).ready(function () {
         // Listen for dropdown change event
@@ -71,6 +78,9 @@
             // Show only albums for the selected year
             $('.photos-section .container .row .photo-item').hide();
             $('.photos-section .container .row .photo-item[data-year="' + selectedYear + '"]').show();
+
+            // Change dropdown button text to the selected year
+            $('#dropdownMenuButton').html('<b>Albums from</b> ' + $(this).text());
         });
     });
 </script>

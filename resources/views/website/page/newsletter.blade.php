@@ -13,9 +13,9 @@
           <div class="dropdown">
               <!-- Default dropup button -->
               <div class="btn-group dropup">
-                  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <b>Newsletter</b> 2024
-                  </button>
+                <button id="dropdownMenuButton" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <b>Newsletter</b> All
+                </button>
                   <ul class="dropdown-menu">
                       <!-- Dropdown menu links -->
                       @foreach ($newsLetters as $newsLetter)
@@ -76,6 +76,9 @@
           // Show only albums for the selected year
           $('.photos-section .container .row .photo-item').hide();
           $('.photos-section .container .row .photo-item[data-year="' + selectedYear + '"]').show();
+
+          // Change dropdown button text to the selected year
+          $('#dropdownMenuButton').html('<b>Newsletter</b> ' + $(this).text());
       });
   });
 </script>
