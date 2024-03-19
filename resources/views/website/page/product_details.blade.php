@@ -1,10 +1,13 @@
 @extends('website.include.master')
 @section('title','LEF For Life | Product-details')
-@section('body')
+@push('css')
 <link rel="stylesheet" href="{{asset('frontend/product')}}/assets/css/slick.css">
 
 <!-- Main Style CSS -->
 <link rel="stylesheet" href="{{asset('frontend/product')}}/assets/css/style.css">
+@endpush
+@section('body')
+
 
         <!-- Carousel Start -->
         <div class="container-fluid carousel  px-0 mb-5 pb-5">
