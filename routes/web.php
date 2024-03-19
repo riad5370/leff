@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+//start route//
 Route::get('/',[FrontendController::class,'index'])->name('index');
 //about-us
 Route::get('/about-us',[FrontendController::class,'aboutUs'])->name('aboutus');
