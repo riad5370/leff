@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('name');
-            $table->integer('price');
-            $table->text('short_desp')->nullable();
-            $table->text('long_desp');
+            $table->string('price');
+            $table->text('short_desp');
+            $table->text('long_desp')->nullable();
             $table->string('preview');
             $table->string('slug');
             $table->timestamps();

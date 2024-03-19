@@ -74,7 +74,6 @@
     <?php
     $activitieProgramsCount = $guestGalleys->count();    
     ?>
-    <h3 class="header smaller lighter blue d-inline">All GuestHouse Gallery Image ({{ $activitieProgramsCount }})</h3> 
     <!-- div.dataTables_borderWrap -->
     @if (session('delete'))
     <div class="alert alert-success">{{session('delete')}}</div>
@@ -82,7 +81,10 @@
     <div>
         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline no-footer">
             <div class="row">
-                <table id="example" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dynamic-table_info">
+                <div class="table-header">
+                    All GuestHouse Gallery Image ({{ $activitieProgramsCount }})
+                </div>
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dynamic-table_info">
                     <thead>
                         <tr role="row">
                             <th class="center sorting_disabled" rowspan="1" colspan="1" aria-label=" ">S/N</th>
@@ -119,3 +121,24 @@
     </div>
 </div>
 @endsection
+@push('js')
+    <!-- page specific plugin scripts -->
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            //initiate dataTables plugin
+            var myTable = 
+            $('#dynamic-table')
+            .DataTable( {
+                bAutoWidth: false,
+                "aoColumns": [
+                  { "bSortable": false },
+                  null, 
+                  { "bSortable": false }
+                ],
+                
+            } );
+        })
+    </script>
+@endpush

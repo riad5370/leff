@@ -68,7 +68,7 @@
                         <div class="carousel-inner">
                             @foreach ($missions as $key => $mission)
                                 <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
-                                    <img src="{{asset('images/missionVission/'.$mission->image)}}" class="d-block w-100" alt="...">
+                                    <img src="{{asset('images/mission/'.$mission->image)}}" class="d-block w-100" alt="...">
                                 </div>
                             @endforeach
                         </div>
@@ -124,6 +124,9 @@
 <!-- facilities End -->   
 
 <!-- CEO Team Start -->
+@if ($members->isEmpty())
+  
+@else
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
@@ -146,7 +149,9 @@
             @endforeach
         </div>
     </div>
-</div>
+</div>  
+@endif
+
 <!-- CEO Team End -->
 
 <!-- Team Start -->

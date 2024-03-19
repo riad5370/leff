@@ -72,22 +72,28 @@
                             
                             <div class="priduct_social d-flex">
                                 
-                                <a class="px-2" href="https://www.youtube.com/@lefforlife"><i class="fab fa-brands fa-whatsapp fa-2x text-dark">WhatsApp Us +8801712948792</i></a>
+                                <a class="px-2" href="#"><i class="fab fa-brands fa-whatsapp fa-2x text-dark">WhatsApp Us +8801712948792</i></a>
                             </div>
                         </form>
                     </div>
                 </div>
-
-                <div class="col-lg-12 col-md-12 py-5">
-                                <h4>Product Description</h4>
-                                <p>{!!$product_info->long_desp!!} </p>
-                            </div>
+            @if ($product_info->long_desp == '')
+            
+            @else
+            <div class="col-lg-12 col-md-12 py-5">
+                <h4>Product Description</h4>
+                <p>{!!$product_info->long_desp!!} </p>
+            </div>  
+            @endif
+                
             </div>
         </div>
     </section>  
 </div>
 <!--product details end-->
 <!-- ================= Product Page End ================== -->
+@if ($related_products->isEmpty())
+@else
 <section class="product_area related_products mb-118">
     <div class="container">
             <div class="row">
@@ -131,7 +137,9 @@
             @endforeach
         </div>
     </div>
-</section>
+</section>   
+@endif
+
 
 
 <script src="{{asset('frontend/product')}}/assets/js/slick.min.js"></script>

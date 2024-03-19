@@ -157,6 +157,14 @@
 
                             <b class="arrow"></b>
                         </li>
+                        <li class="">
+                            <a href="{{route('basics.we.are.image')}}">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Who We Are Image
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
                     </ul>
                 </li>
             </ul>

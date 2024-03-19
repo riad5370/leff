@@ -44,7 +44,7 @@ class PhotoGalleryController extends Controller
             'year_id' => 'required',
             'title' => 'required',
             'details' => 'required',
-            'vdo_link' => 'required|string',
+            'vdo_link' => 'nullable',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
         ];
         //validate check request data
@@ -104,7 +104,7 @@ class PhotoGalleryController extends Controller
             'year_id' => 'required',
             'title' => 'required',
             'details' => 'required',
-            'vdo_link' => 'required|string',
+            'vdo_link' => 'nullable',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
         ];
         //validate check request data

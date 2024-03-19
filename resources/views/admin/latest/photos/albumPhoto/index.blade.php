@@ -78,7 +78,7 @@
                                     <td>No Photo Year available</td>
                                 @endif
                                 <td>{{ $succes->title }}</td>
-                                <td>{{  Str::limit($succes->vdo_link, 40) }}</td>
+                                <td>{{  Str::limit($succes->vdo_link, 40) ?: 'null' }}</td>
                                 <td>{{  Str::limit($succes->details, 40) }}</td> 
                                 <td>
                                     @if ($succes->image)

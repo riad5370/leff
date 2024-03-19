@@ -72,7 +72,7 @@
 
                     {{-- Supporter Social Link --}}
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="link">Supporter Social Link :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="link">Supporter Social Link (optional) :</label>
                         <div class="col-sm-9">
                             <input type="text" name="social_link" id="link" placeholder="Supporter Social Link"
                                 class="col-xs-12 col-md-11 col-sm-12" />

@@ -114,10 +114,16 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::post('/about/basic/storeUpdate',[AboutController::class,'Update'])->name('aboutbasics.store');
     //about-image-section
     Route::get('/about/basic/image',[AboutController::class,'basicImage'])->name('aboutbasics.image');
-    Route::post('/about/basic/we-are-image',[AboutController::class,'basicWeAreImage'])->name('weare.image');
+    //mission
+    Route::post('/about/basic/mission-image',[AboutController::class,'basicMissionImage'])->name('mission.image');
+    Route::post('/about/basic/missinmain/delete/{id}',[AboutController::class,'missionMainDelete'])->name('missionmain.delete');
+    //vission
     Route::post('/about/basic/mission-vission-image',[AboutController::class,'basicMissionVissionImage'])->name('mivi.imag');
-    Route::post('/about/basic/weare-image-destroy/{id}',[AboutController::class,'weareDestroy'])->name('weare.destroy');
     Route::post('/about/basic/missin/delete/{id}',[AboutController::class,'missionDelete'])->name('mission22.delete');
+    //we are image
+    Route::get('/about/basic/who-we-are-image',[AboutController::class,'weAreImage'])->name('basics.we.are.image');
+    Route::post('/about/basic/we-are-image',[AboutController::class,'basicWeAreImage'])->name('weare.image');
+    Route::post('/about/basic/weare-image-destroy/{id}',[AboutController::class,'weareDestroy'])->name('weare.destroy');
     //bank-information
     Route::get('/about/bank-info',[AboutController::class,'bankInfo'])->name('bank.info');
     Route::post('/about/bank-update',[AboutController::class,'bankUpdate'])->name('bank.update');
@@ -176,7 +182,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     //profile-setting
     Route::get('/profile',[ProfileController::class,'profile'])->name('profile');
     Route::post('/profile-baicInfo-change', [ProfileController::class, 'infoUpdate'])->name('info.update');
-    Route::post('/profile-password-change', [ProfileController::class, 'passwordUpdate'])->name('password.update');
+    Route::post('/profile-password-update', [ProfileController::class, 'passwordUpdate'])->name('profile.password.update');
 
     //user
     Route::get('/user-create',[UserController::class,'create'])->name('user.create');

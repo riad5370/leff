@@ -37,8 +37,10 @@
                 </div>
             </div>
         </div>
+        @if($category_products->isEmpty())
+         <h4 class="text-center text-danger">No Found Products!</h4>
+        @else
         <div class="product_container row">
-            
             @foreach ($category_products as $categoryProduct)
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <article class="single_product">
@@ -70,6 +72,8 @@
                 </div>  
             @endforeach
         </div>
+        @endif
+        
     </div>
 </section>
 <!--product area end-->

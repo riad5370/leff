@@ -33,12 +33,15 @@
       </div> 
     </section>
 
-
-            <div class="container mb-5 wow fadeInUp" >
-              <div class=" embed-responsive embed-responsive-16by9">
-                <iframe class="iframe embed-responsive-item" width="100%" height="600px"  src="{{$photoDetails->vdo_link??''}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
-            </div>
+@if ($photoDetails->vdo_link == '')
+@else
+  <div class="container mb-5 wow fadeInUp" >
+    <div class=" embed-responsive embed-responsive-16by9">
+      <iframe class="iframe embed-responsive-item" width="100%" height="600px"  src="{{$photoDetails->vdo_link??''}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+@endif
+            
 
         </div>
 <!-- Photo End -->

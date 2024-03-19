@@ -49,7 +49,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required',
             'short_desp' => 'required',
-            'long_desp' => 'required',
+            'long_desp' => 'nullable',
             'preview' => 'image|mimes:jpg,png,wepb,jpeg|max:1024',
 
         ];
@@ -100,6 +100,7 @@ class ProductController extends Controller
         return view('admin.product.edit',[
             'product'=>$product,
             'categories'=>Category::all(),
+            'photos'=>Thumbnail::where('product_id',$product->id)->get()
         ]);
     }
 
@@ -115,7 +116,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required',
             'short_desp' => 'required',
-            'long_desp' => 'required',
+            'long_desp' => 'nullable',
             'preview' => 'image|mimes:jpg,png,wepb,jpeg|max:1024',
 
         ];

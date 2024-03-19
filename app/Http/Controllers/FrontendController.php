@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutBasic;
+use App\Models\AboutMissionImage;
 use App\Models\Activitie;
 use App\Models\ActivitieImage;
 use App\Models\ActivitieOther;
@@ -74,7 +75,7 @@ class FrontendController extends Controller
 
     //about-page
     public function aboutUs() {
-        $missions = MissinVissinImage::orderBy('id', 'ASC')->get();
+        $missions = AboutMissionImage::all();
         $visions = MissinVissinImage::orderBy('id', 'DESC')->get();
         return view('website.page.aboutUs',[
             'missions'=>$missions,

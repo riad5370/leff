@@ -4,7 +4,6 @@
     <?php
     $activitieProgramsCount = $activitiePrograms->count();    
     ?>
-    <h3 class="header smaller lighter blue d-inline">All Activities ({{ $activitieProgramsCount }})</h3> 
     <!-- div.dataTables_borderWrap -->
     <div>
         <form class="col-md-offset-3 text-right">
@@ -17,7 +16,10 @@
                 <div class="alert alert-success">{{session('success')}}</div>
             @endif
             <div class="row">
-                <table id="example" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dynamic-table_info">
+                <div class="table-header">
+                    All Activitie & Programs ({{ $activitieProgramsCount }})
+                </div>
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dynamic-table_info">
                     <thead>
                         <tr role="row">
                             <th class="center sorting_disabled" rowspan="1" colspan="1" aria-label=" ">S/N</th>
@@ -61,3 +63,24 @@
     </div>
 </div>
 @endsection
+@push('js')
+    <!-- page specific plugin scripts -->
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            //initiate dataTables plugin
+            var myTable = 
+            $('#dynamic-table')
+            .DataTable( {
+                bAutoWidth: false,
+                "aoColumns": [
+                  { "bSortable": false },
+                  null,null,null,null, 
+                  { "bSortable": false }
+                ],
+                
+            } );
+        })
+    </script>
+@endpush

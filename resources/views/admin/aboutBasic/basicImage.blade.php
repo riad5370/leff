@@ -33,10 +33,10 @@
             </div>
             <div class="row justify-content-center" style="margin-top: 15px; margin-left: 10px;">
                 <div class="col-md-6">
-                    <form action="{{route('weare.image')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{route('mission.image')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="image">We Are Image  :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="image">Our Mission Image  :</label>
                         <div class="col-sm-9">
                             <div class="col-sm-5">
                                 <div class="widget-body">
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <span class="help-inline col-xs-12 col-sm-7">
-                                <label class="middle"">
+                                <label class="middle">
                                     <img height="145" id="blah" width="155" src="{{ asset('images/temp.jpg') }}"
                                         alt="Image">
                                 </label>
@@ -76,7 +76,7 @@
                     <form action="{{route('mivi.imag')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="image">Missuin / Vission Image :</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="image">Our Vision Image :</label>
                         <div class="col-sm-9">
                             <div class="col-sm-5">
                                 <div class="widget-body">
@@ -120,10 +120,12 @@
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/chosen.min.css') }}" /> --}}
         <div class="col-12 col-md-12 col-xs-12">
             <div class="widget-box">
-                <div class="row" style="margin: 3px;">
+                <div class="row" style="padding:10px 0px">
                     <div class="col-md-6">
-                        <h4>We Are Image:</h4>
                         <div class="col-xs-12">
+                            <div class="table-header">
+                                Mission Images 
+                            </div>
                             <table id="dynamic-table" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
@@ -137,10 +139,10 @@
                                         <tr>
                                             <td class="center">{{$key+1}}</td>
                                             <td class="center">
-                                                <img width="50" class="mx-auto d-block" src="{{ asset('images/weAre/' . $weAre->image) }}" alt="">
+                                                <img width="50" class="mx-auto d-block" src="{{ asset('images/mission/' . $weAre->image) }}" alt="">
                                             </td>
                                             <td class="btn-group" style="display: flex ; justify-content: center">
-                                                <form action="{{ route('weare.destroy', $weAre->id) }}" method="POST">
+                                                <form action="{{ route('missionmain.delete', $weAre->id) }}" method="POST">
                                                     @csrf
                                                     <input type="submit" value="Delete" class="btn btn-danger btn-sm"  onclick="return confirm('Are You Sure Delete This!')">
                                                 </form>
@@ -152,9 +154,11 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h4>Mission/Vission Image:</h4>
                         <div class="col-xs-12">
-                            <table id="dynamic-table" class="table table-striped table-bordered table-hover">
+                            <div class="table-header">
+                                Vission Images 
+                            </div>
+                            <table id="dynamic-table1" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th class="center">Si</th>
@@ -219,3 +223,37 @@
     </script> --}}
 
 @endsection
+
+@push('js')
+    <!-- page specific plugin scripts -->
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            //initiate dataTables plugin
+            var myTable = 
+            $('#dynamic-table')
+            .DataTable( {
+                bAutoWidth: false,
+                "aoColumns": [
+                  { "bSortable": false },
+                  null, 
+                  { "bSortable": false }
+                ],
+                
+            } );
+
+            var myTable = 
+            $('#dynamic-table1')
+            .DataTable( {
+                bAutoWidth: false,
+                "aoColumns": [
+                  { "bSortable": false },
+                  null, 
+                  { "bSortable": false }
+                ],
+                
+            } );
+        })
+    </script>
+@endpush

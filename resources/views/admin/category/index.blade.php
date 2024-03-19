@@ -50,7 +50,6 @@
     <?php
     $categoryCount = $categories->count();    
     ?>
-    <h3 class="header smaller lighter blue">All Category ({{ $categoryCount }})</h3>
     <!-- div.dataTables_borderWrap -->
     <div>
         @if (session('delete'))
@@ -62,8 +61,11 @@
 
         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline no-footer">
             <div class="row">
+                <div class="table-header">
+                    All Category ({{ $categoryCount }})
+                </div>
                 <div>
-                <table id="example" class="table table-striped table-bordered table-hover dataTable no-footer"
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover dataTable no-footer"
                     role="grid" aria-describedby="dynamic-table_info">
                     <thead>
                         <tr role="row">
@@ -109,3 +111,24 @@
     </div>
 </div>
 @endsection
+@push('js')
+    <!-- page specific plugin scripts -->
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            //initiate dataTables plugin
+            var myTable = 
+            $('#dynamic-table')
+            .DataTable( {
+                bAutoWidth: false,
+                "aoColumns": [
+                  { "bSortable": false },
+                  null, 
+                  { "bSortable": false }
+                ],
+                
+            } );
+        })
+    </script>
+@endpush

@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('photo_albums', function (Blueprint $table) {
+        Schema::create('about_mission_images', function (Blueprint $table) {
             $table->id();
-            $table->string('year_id');
-            $table->string('title',150);
-            $table->string('details',500);
-            $table->text('vdo_link')->nullable();
             $table->string('image');
             $table->timestamps();
         });
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('photo_albums');
+        Schema::dropIfExists('about_mission_images');
     }
 };

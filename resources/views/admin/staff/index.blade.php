@@ -5,7 +5,6 @@
     <?php
     $staffCount = $staffs->count();    
     ?>
-    <h3 class="header smaller lighter blue">All Staff ({{ $staffCount }})</h3>
     <!-- div.dataTables_borderWrap -->
     <div>
         {{-- message --}}
@@ -30,7 +29,10 @@
         </form>
         <div id="dynamic-table_wrapper" class="dataTables_wrapper form-inline no-footer">
             <div class="row">
-                <table id="example" class="table table-striped table-bordered table-hover dataTable no-footer"
+                <div class="table-header">
+                    All Staff ({{ $staffCount }})
+                </div>
+                <table id="dynamic-table" class="table table-striped table-bordered table-hover dataTable no-footer"
                     role="grid" aria-describedby="dynamic-table_info">
                     <thead>
                         <tr role="row">
@@ -96,3 +98,24 @@
     </div>
 </div>
 @endsection
+@push('js')
+    <!-- page specific plugin scripts -->
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/jquery.dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+            //initiate dataTables plugin
+            var myTable = 
+            $('#dynamic-table')
+            .DataTable( {
+                bAutoWidth: false,
+                "aoColumns": [
+                  { "bSortable": false },
+                  null,null,null,null, 
+                  { "bSortable": false }
+                ],
+                
+            } );
+        })
+    </script>
+@endpush

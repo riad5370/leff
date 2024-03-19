@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Helpers\ImageHelper;
 use App\Http\Controllers\Controller;
 use App\Models\AboutBasic;
+use App\Models\AboutMissionImage;
 use App\Models\BankInfo;
 use App\Models\MissinVissinImage;
 use App\Models\WhatWeAreImage;
@@ -71,13 +72,20 @@ class AboutController extends Controller
      public function basicImage()
      {
         $missinVissions = MissinVissinImage::all();
-        $weAres = WhatWeAreImage::all();
+        $weAres = AboutMissionImage::all();
         return view('admin.aboutBasic.basicImage',[
             'missinVissions'=>$missinVissions,
             'weAres'=>$weAres,
         ]);
      }
-
+    //we are image
+    public function weAreImage()
+     {
+        $weAres = WhatWeAreImage::all();
+        return view('admin.aboutBasic.weAre',[
+            'weAres'=>$weAres,
+        ]);
+     }
      public function basicWeAreImage(Request $request)
      {
         $rules = [
@@ -98,6 +106,30 @@ class AboutController extends Controller
         return back()->withSuccess('New Image Added Successfull!');
      }
 
+     //mission/vission
+
+     //mission
+     public function basicMissionImage(Request $request)
+     {
+        $rules = [
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
+        ];
+        //validate check request data
+        $validateData = $request->validate($rules);
+
+        // Image management using helper function
+        if ($request->hasFile('image')) {
+            $imageName = ImageHelper::uploadImage($request->file('image'), '/images/mission/');
+            $validateData ['image'] = $imageName;
+        }
+        // Store data
+        AboutMissionImage::create($validateData);
+
+        //redirect
+        return back()->withSuccess('New Image Added Successfull!');
+     }
+
+     //vission
      public function basicMissionVissionImage(Request $request)
      {
         $rules = [
@@ -125,6 +157,15 @@ class AboutController extends Controller
         if($id->image){
             // Delete image
             ImageHelper::deleteImage('/images/weAre/' . $id->image);
+        }
+        $id->delete();
+        return back()->with('success','deleted');
+     }
+     public function missionMainDelete(Request $request, $id){
+        $id = AboutMissionImage::find($id);
+        if($id->image){
+            // Delete image
+            ImageHelper::deleteImage('/images/mission/' . $id->image);
         }
         $id->delete();
         return back()->with('success','deleted');

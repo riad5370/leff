@@ -75,7 +75,7 @@
                                 <label>Price :</label>
             
                                 <div class="">
-                                    <input type="number" value="{{old('price')}}" name="price" placeholder="Product price"
+                                    <input type="text" value="{{old('price')}}" name="price" placeholder="Product price"
                                         class="col-xs-12 col-md-11 col-sm-12" />
                                     <br> <br>
                                 </div>
@@ -96,7 +96,7 @@
                         <div class="col-md-6">
                             {{-- slider title  --}}
                             <div class="form-group">
-                                <label class="">Long Description :</label>
+                                <label class="">Long Description (optional) :</label>
             
                                 <div class="">
                                     <textarea name="long_desp" cols="30" rows="10" class="summernote">{{old('long_desp')}}</textarea>
@@ -106,12 +106,17 @@
                         </div>
                    
                         <div class="col-xs-6">
+                           <label for=""> Preview Image:</label>
                             <label class="ace-file-input"><input name="preview" type="file" id="id-input-file-2" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>
                             <img src="" width="70px;" id="blah" alt="">
                         </div>
                         <div class="col-xs-6">
-                            <label class="ace-file-input"><input name="thumbnail[]" multiple type="file" id="id-input-file-2" onchange="document.getElementById('blahh').src = window.URL.createObjectURL(this.files[0])"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>
-                            <img src="" width="70px;" id="blahh" alt="">
+                            <label for=""> Thumbnail Image:</label>
+                            <label class="ace-file-input"><input name="thumbnail[]" multiple onchange="previewImages(this)" type="file" id="id-input-file-2"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>
+                            <div id="image-preview-container" style="margin-right: 20px;">
+                                <img src="" width="70px;" alt="">
+                            </div>
+                            
                         </div>
                     <hr>
                     <div class="wizard-actions">
@@ -147,5 +152,29 @@
         });
 
     </script>
+
+<script>
+    function previewImages(input) {
+        var previewContainer = document.getElementById('image-preview-container');
+        previewContainer.innerHTML = ''; // Clear previous previews
+
+        if (input.files) {
+            for (var i = 0; i < input.files.length; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var imgElement = document.createElement('img');
+                    imgElement.setAttribute('height', '50'); // Adjusted height
+                    imgElement.setAttribute('width', '50');  // Adjusted width
+                    imgElement.src = e.target.result;
+
+                    previewContainer.appendChild(imgElement);
+                };
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+    }
+</script>
    
 @endpush

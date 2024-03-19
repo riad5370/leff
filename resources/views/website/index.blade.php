@@ -170,30 +170,27 @@
     <div class="container py-5">
         <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
             <h1 class="display-5 w-50 mx-auto">Our Supporters and Donors</h1>
-            
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay=".5s">
-
             @foreach ($supporters as $supporter)
             <div class="testimonial-item">
-                <div class="testimonial-content rounded mb-4 p-4">
-                    <p class="fs-5 m-0">{{$supporter->about_supporter}}</p>
-                </div>
-                <div class="d-flex align-items-center  mb-4" style="padding: 0 0 0 25px;">
-                    <div class="position-relative">
+                <div class="d-flex align-items-center justify-content-center flex-column mb-1">
+                    <div class="position-relative mb-3">
                         <img src="{{ asset('images/supporter/' . $supporter->image) }}" class="img-fluid supporter-img rounded-circle py-2" alt="">
-                        
                     </div>
-                    <div class="ms-3">
+                    <div class="ms-3 text-center">
                         <h4 class="mb-0">{{$supporter->name}}</h4>
-                        <p class="mb-1">{{$supporter->social_link}}</p>
-                        
+                        <p class="mb-1">{{$supporter->email}}</p>
                     </div>
+                </div>
+                <div class="testimonial-content rounded p-4 text-center">
+                    <p class="fs-5 m-0">{{$supporter->about_supporter}}</p>
                 </div>
             </div>
             @endforeach
         </div>
     </div>
 </div>
+
 <!-- Testiminial End -->
 @endsection

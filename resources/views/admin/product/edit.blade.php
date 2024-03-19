@@ -13,7 +13,7 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="{{route('products.index')}}">Product</a>
             </li>
-            <li class="active">Add Product Information</li>
+            <li class="active">Edit Product Information</li>
         </ul>
     </div>
     @if ($errors->any())
@@ -29,7 +29,7 @@
     <div class="page-content font">
         <div class="widget-box">
             <div class="widget-header widget-header-blue widget-header-flat">
-                <h4 class="widget-title lighter">New Item</h4>
+                <h4 class="widget-title lighter">Edit Item</h4>
             </div>
             <div class="widget-body">
                 <div class="widget-main">
@@ -94,7 +94,7 @@
                         <div class="col-md-6">
                             {{-- slider title  --}}
                             <div class="form-group">
-                                <label class="">Long Description :</label>
+                                <label class="">Long Description (optional) :</label>
             
                                 <div class="">
                                     <textarea name="long_desp" cols="30" rows="10" class="summernote">{{ $product->long_desp }}</textarea>
@@ -104,12 +104,23 @@
                         </div>
                    
                         <div class="col-xs-6">
+                            <label for="">Preview Image:</label>
                             <label class="ace-file-input"><input name="preview" type="file" id="id-input-file-2" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>
                             <img src="{{ asset('images/products/preview/' . $product->preview) }}" width="70px;" id="blah" alt="">
                         </div>
                         <div class="col-xs-6">
-                            <label class="ace-file-input"><input name="thumbnail[]" multiple type="file" id="id-input-file-2" onchange="document.getElementById('blahh').src = window.URL.createObjectURL(this.files[0])"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>
-                            <img src="{{ asset('images/products/thumbnail/' . $product->thumbnail) }}" width="70px;" id="blahh" alt="">
+                            <label for="">Thumbnail Image:</label>
+                            <label class="ace-file-input"><input name="thumbnail[]" multiple type="file" id="id-input-file-2" onchange="previewImages(this)"><span class="ace-file-container" data-title="Choose"><span class="ace-file-name" data-title="No File ..."><i class=" ace-icon fa fa-upload"></i></span></span><a class="remove" href="#"><i class=" ace-icon fa fa-times"></i></a></label>
+
+                            <div id="image-preview-container">
+                                <label class="middle">
+                                    @foreach ($photos as $photo)
+                                    <img src="{{ asset('images/products/thumbnail/' . $photo->thumbnail) }}" width="70px;" id="blahh" alt="">
+                                    @endforeach
+                                </label>
+                            </div>
+
+                            
                         </div>
                     <hr>
                     <div class="wizard-actions">
@@ -144,6 +155,29 @@
             $('.summernote').summernote();
         });
 
+    </script>
+    <script>
+        function previewImages(input) {
+            var previewContainer = document.getElementById('image-preview-container');
+            previewContainer.innerHTML = ''; // Clear previous previews
+    
+            if (input.files) {
+                for (var i = 0; i < input.files.length; i++) {
+                    var reader = new FileReader();
+    
+                    reader.onload = function (e) {
+                        var imgElement = document.createElement('img');
+                        imgElement.setAttribute('height', '50'); // Adjusted height
+                        imgElement.setAttribute('width', '50');  // Adjusted width
+                        imgElement.src = e.target.result;
+    
+                        previewContainer.appendChild(imgElement);
+                    };
+    
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        }
     </script>
    
 @endpush
