@@ -51,7 +51,7 @@
 <!-- About End -->
 
 <div class="container">
-    <div class="row">
+    <div class="row d-none d-lg-block">
         <h2>Volunteer with us for skills exchange,
             cultural immersion, and unforgettable
             memories!</h2>
@@ -169,7 +169,7 @@
 <div class="container-fluid testimonial py-5">
     <div class="container py-5">
         <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-            <h1 class="display-5 w-50 mx-auto">Our Supporters and Donors</h1>
+            <!--<h1 class="display-5 w-50 mx-auto">Our Supporters and Donors</h1>-->
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay=".5s">
             @foreach ($supporters as $supporter)

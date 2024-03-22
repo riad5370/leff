@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <title>@yield('title')</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
-
+        <meta content="" name="Lef For Life">
+        <meta content="" name="LEF FOR LIFE, a non-profit organization, is dedicated to providing love, education, and food to underprivileged individuals.">
+        <link rel="icon" type="image/x-icon" href="https://lefforlife.org/images/logo/1708353131.png">
+        @stack('css')
        @include('website.include.style')
-       @stack('css')
+       
     </head>
 
     <body>

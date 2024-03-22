@@ -19,23 +19,23 @@ margin-top: 6rem; ">
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="text-white fw-bold mb-4">Usefull Link</h4>
+                    <h4 class="text-white fw-bold mb-4">Contact Link</h4>
                     <div class="d-flex flex-column align-items-start">
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>About Us</a>
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Contact Us</a>
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Our Services</a>
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Terms & Condition</a>
+                        <a class="btn btn-link ps-0" href="{{url('/')}}"><i class="fa fa-check me-2"></i>Home</a>
+                        <a class="btn btn-link ps-0" href="{{route('aboutus')}}"><i class="fa fa-check me-2"></i>About Us</a>
+                        <a class="btn btn-link ps-0" href="{{route('activitiepage')}}"><i class="fa fa-check me-2"></i>Activities</a>
+                        <a class="btn btn-link ps-0" href="{{route('oursuccess')}}"><i class="fa fa-check me-2"></i>Our Success</a>
+                        <a class="btn btn-link ps-0" href="{{route('guest.house')}}"><i class="fa fa-check me-2"></i>Guest House</a>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="text-white fw-bold mb-4">Services Link</h4>
+                    <h4 class="text-white fw-bold mb-4">Social Link</h4>
                     <div class="d-flex flex-column align-items-start">
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Apartment Cleaning</a>
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Office Cleaning</a>
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Car Washing</a>
-                        <a class="btn btn-link ps-0" href=""><i class="fa fa-check me-2"></i>Green Cleaning</a>
+                        <a class="btn btn-link ps-0"  href="https://www.facebook.com/LEFDhaka"><i class="fa fa-check me-2"></i>Facebook</a>
+                        <a class="btn btn-link ps-0" href="https://www.youtube.com/@lefforlife"><i class="fa fa-check me-2"></i>Youtube</a>
                     </div>
                     
                 </div>

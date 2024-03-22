@@ -59,11 +59,11 @@
 
                     
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle @if(Request::segment(1) == 'photo-gallery' ) active @endif" data-bs-toggle="dropdown">The Latest</a>
+                        <a href="#" class="nav-link dropdown-toggle @if(Request::segment(1) == 'photo-gallery' ) active @endif" data-bs-toggle="dropdown">Newsletter</a>
                         <div class="dropdown-menu m-0 bg-primary">
+                            <a href="{{route('news.letter')}}" class="dropdown-item">Newsletter</a>
                             <a href="{{route('photo.gallery')}}" class="dropdown-item">Photos </a>
                             <a href="{{route('latest.videos')}}" class="dropdown-item">Videos</a>
-                            <a href="{{route('news.letter')}}" class="dropdown-item">Newsletter</a>
                         </div>
                     </div>
 

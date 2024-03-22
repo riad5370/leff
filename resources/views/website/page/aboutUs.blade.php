@@ -35,7 +35,7 @@
     <div class="container py-5">
         <div class="text-center wow fadeInUp" data-wow-delay=".3s">
             <h1 class="display-5">Who we are?</h1>
-            <p class="mb-2 px-3 py-1 text-dark fs-5" style="text-align: justify;">{{$aboutBasic->we_are_content ? $aboutBasic->we_are_content : ''}}</p>
+            <p class="mb-5 px-3 py-1 text-dark fs-5" style="text-align: justify;">{{$aboutBasic->we_are_content ? $aboutBasic->we_are_content : ''}}</p>
             
         </div>
         <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay=".5s">

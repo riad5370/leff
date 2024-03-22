@@ -12,10 +12,10 @@
                 <div class="carousel-caption">
                     <div class="container carousel-content">
                         
-                        <h2 class="text-white text-center display-1 mb-4 animated slideInDown herofont minifont" >{{$productBasict->title ? $productBasict->title : ''}}
+                        <h2 class="text-white text-center display-1 mb-4 animated slideInDown herofont minifont" >Buy One, Feed One.
                         </h2>
-                        <h5 class="text-white text-center mb-4 animated slideInDown" style="text-align: justify;">
-                        </h5>
+                        <h4 class="text-white text-center mb-4 animated slideInDown" style="text-align: justify;">{{$productBasict->title ? $productBasict->title : ''}}
+                        </h4>
                         
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                             </div>
                             <figcaption class="product_content text-center">
                                 
-                                <h3 class="product_name herofont4"><a href="product-details.html" class="text-black">{{$categoryProduct->name}}</a></h3>
+                                <h3 class="product_name herofont4"><a href="product-details.html" class="text-black" class="text-black" style="color: black !important;">{{$categoryProduct->name}}</a></h3>
                                 <div class="price_box">
                                 <span class="text-black">Price: ${{$categoryProduct->price}}</span>
                                 </div>
