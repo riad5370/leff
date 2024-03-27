@@ -47,12 +47,12 @@
                             <br> <br>
                         </div>
                     </div>
-                     {{-- Donar name  --}}
+                     {{-- Donar email  --}}
                      <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="name">Email :</label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="email" id="email" placeholder="Donar Email"
+                            <input type="email" name="email" id="email" placeholder="Donar Email"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                         </div>

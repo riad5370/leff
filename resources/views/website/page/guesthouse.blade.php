@@ -19,10 +19,7 @@
                     </div>
                 </div>
             </div>
-            
-            
         </div>
-
         <div class="container">
             <div class="row justify-content-center">
                 <p class="p-4 wow fadeInUp" data-wow-delay=".3s">{!! $guestBasic->slideDownDetails??'' !!}</p>
