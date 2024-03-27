@@ -28,8 +28,6 @@
                 <p class="p-4 wow fadeInUp" data-wow-delay=".3s">{!! $guestBasic->slideDownDetails??'' !!}</p>
             </div>
         </div>
-        
-
     </div>
 </div>
 <!-- Carousel End -->
