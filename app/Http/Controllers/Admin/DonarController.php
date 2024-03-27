@@ -35,6 +35,7 @@ class DonarController extends Controller
     {
         $rules = [
             'name' => 'required|unique:donars',
+            'email' => 'nullable',
             'title' => 'nullable',
             'social_link' => 'nullable',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',
@@ -80,6 +81,7 @@ class DonarController extends Controller
     {
         $rules = [
             'name' => 'required|unique:donars,name,'.$donar->id,
+            'email' => 'nullable',
             'title' => 'nullable',
             'social_link' => 'nullable',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:4096',

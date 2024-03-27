@@ -40,6 +40,9 @@
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
                                 colspan="1" aria-label="service Name: activate to sort column ascending">Name
                             </th>
+                            <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
+                                colspan="1" aria-label="service Name: activate to sort column ascending">Email
+                            </th>
 
                             <th class="sorting_disabled" tabindex="0" aria-controls="dynamic-table" rowspan="1"
                                 colspan="1" aria-label="service Name: activate to sort column ascending">Title
@@ -67,6 +70,7 @@
                                     {{ $sn++ }}
                                 </td>
                                 <td>{{ $donar->name }}</td>
+                                <td>{{ $donar->email }}</td>
                                 <td>{{ $donar->title }}</td>
                                 <td>{{ $donar->social_link }}</td>
                                 <td>

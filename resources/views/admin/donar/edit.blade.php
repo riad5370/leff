@@ -47,6 +47,17 @@
                         </div>
                     </div>
 
+                    {{-- Donar name  --}}
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="name">Email :</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="email" value="{{$donar->email}}" id="email" placeholder="Donar Email"
+                                class="col-xs-12 col-md-11 col-sm-12" />
+                            <br> <br>
+                        </div>
+                    </div>
+
                     {{-- Donar title  --}}
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="title">Donar Title :</label>

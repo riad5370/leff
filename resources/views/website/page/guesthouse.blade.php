@@ -23,9 +23,9 @@
             
         </div>
 
-        <div class="container-fluid ">
-            <div class="row">
-                <p class="p-4 wow fadeInUp" data-wow-delay=".3s" style="text-align: justify;">{!! $guestBasic->slideDownDetails??'' !!}</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <p class="p-4 wow fadeInUp" data-wow-delay=".3s">{!! $guestBasic->slideDownDetails??'' !!}</p>
             </div>
         </div>
         

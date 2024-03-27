@@ -194,6 +194,7 @@
                         <div class="team-content bg-primary text-dark text-center py-3">
                             <span class="fs-4 fw-bold">{{$donar->name}}</span>
                             <p class="text-muted mb-0">{{$donar->title}}</p>
+                            <p class="text-muted mb-0">{{$donar->email}}</p>
                         </div>
                         <div class="team-icon d-flex flex-column ">
                             <a href="{{$staff->social_link}}" class="btn btn-primary border-0 mb-2"><i class="fab fa-facebook-f"></i></a>

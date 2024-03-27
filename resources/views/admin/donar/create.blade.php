@@ -1,7 +1,6 @@
 @extends('admin.include.master')
 @section('body')
 
-
 <div class="main-content-inner font">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
@@ -44,6 +43,16 @@
 
                         <div class="col-sm-9">
                             <input type="text" name="name" id="name" placeholder="Donar Name"
+                                class="col-xs-12 col-md-11 col-sm-12" />
+                            <br> <br>
+                        </div>
+                    </div>
+                     {{-- Donar name  --}}
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="name">Email :</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="email" id="email" placeholder="Donar Email"
                                 class="col-xs-12 col-md-11 col-sm-12" />
                             <br> <br>
                         </div>

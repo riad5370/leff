@@ -66,7 +66,7 @@
             $aboutBasic = App\Models\AboutBasic::first();
         @endphp
         <div class="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
-            <h1 class="display-5">What we do</h1>
+            <h1 class="display-5">What we do?</h1>
             <p class="mb-2 px-3 py-1 text-dark fs-5" style="text-align: justify;">{{$aboutBasic->we_do_content??''}}</p>
             
         </div>
@@ -123,7 +123,7 @@
                         <div class="custom-block-body">
                             <h5 class="mb-3">A short Video of LEF For Life Organization</h5>
 
-                            <p>Discover the heartwarming journey of LEF for Life where love, education and food come together to transform lives. Join us in making a difference.</p>
+                            <p class="ceo-p">Discover the heartwarming journey of LEF for Life where love, education and food come together to transform lives. Join us in making a difference.</p>
 
                                 <div class="social-icon">
                                     <div class="d-flex justify-content-center col-lg col-md-12">
@@ -140,7 +140,7 @@
             <div class="col-lg-12 col-12 text-center mb-4 wow fadeInUp" data-wow-delay=".3s">
                 <div class="custom-block">
                         <div class="custom-block-body">
-                            <p>{{$ceo->description}}</p>
+                            <p class="ceo-p">{{$ceo->description}}</p>
                             <h4 class="">{{$ceo->name}}</h4>
                             <h5 class="">{{$ceo->title}}</h5>
 
